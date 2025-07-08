@@ -1,5 +1,5 @@
 import { Alunas, turma} from "../../listaPreConstruida";
-import { retornarMedias } from "./1-retornar-medias";
+import { alunasComMedia } from "./1-retornar-medias";
 
 type ListaComMedia = { 
           nome: String , 
@@ -8,11 +8,11 @@ type ListaComMedia = {
       }
       
 function retornarObjetos( alunas: Alunas) : ListaComMedia[] {
-    const medias = retornarMedias(alunas);
-    return alunas.map ((aluna, index) => ({ 
+    
+    return alunasComMedia(alunas).map ((aluna) => ({ 
         nome: aluna.nome, 
-        media:medias[index],
-        aprovada: medias[index] >= 7 
+        media:aluna.media,
+        aprovada: aluna.media >= 7 
     }));
 }
 
